@@ -1,0 +1,30 @@
+#target you can change test to what you want
+TARGET  := demo-string
+
+#compile and lib parameter
+CC		:= gcc
+
+CPPSRCS	:=$(wildcard ./*.c)
+CPPOBJS	:=$(patsubst %.c, %.o, ${CPPSRCS})
+
+
+CCFLAGS=-c -O3
+CPPLINK	:=-I./string
+# OBJLINK	:=-L/usr/lib/ -lpython2.7
+
+
+$(TARGET):$(CPPOBJS)
+	@echo "Compiling target: $@"
+	$(CC) -o $@ $^ $(OBJLINK)
+	@rm -f $(CPPOBJS)
+	@echo "Build Successed."
+	
+$(CPPOBJS):%o:%c
+	@echo "Compiling $@"
+	@$(CC) -o $@ -c $< $(CCFLAGS) $(CPPLINK)
+	
+PHONY:clean
+
+clean:
+	rm -rf $(TARGET)
+	rm -rf $(CPPOBJS)
