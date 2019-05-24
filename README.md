@@ -14,3 +14,6 @@ These folder shows the thoughts of common design modes and each realization with
 ## Docs
 Articles, microblogs and books are listed here.  
 
+## Interview
+Core knowledges collecting in the interview process, including C, C++, Design mode and Coding.
+ 
